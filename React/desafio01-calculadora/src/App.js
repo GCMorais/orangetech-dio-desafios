@@ -2,6 +2,7 @@ import { Container, Content, Row } from "./styles";
 import Input from './components/Input';
 import Button from './components/Button';
 import { useState } from "react";
+import { StyledBtn, StyledClearBtn } from "./components/Button/styles";
 
 const App = () => {
   const [currentNumber, setCurrentNumber] = useState('0');
@@ -22,7 +23,7 @@ const App = () => {
 
     if(firstNumber === '0'){
       setFirstNumber(String(currentNumber));
-      setCurrentNumber('0');
+      setCurrentNumber('+');
       setOperation('+');
     }else{
       const sum = Number(firstNumber) + Number(currentNumber);
@@ -57,15 +58,28 @@ const App = () => {
     }
   }
 
-  const handleRaizNumbers = () => {
+  const handleDivisRestNumbers = () => {
 
     if(firstNumber === '0'){
       setFirstNumber(String(currentNumber));
       setCurrentNumber('0');
-      setOperation(Math.sqrt());
+      setOperation('%');
     }else{
-      const sum = Math.sqrt(Number(currentNumber));
-      setCurrentNumber(String(sum));
+      const sum = Number(firstNumber) % Number(currentNumber);
+      setCurrentNumber(Number(firstNumber)+ ' % ' + Number(currentNumber) + ' = ' + String(sum) + ' Resto');
+      setOperation('')
+    }
+  }
+
+  const handleMultiNumbers = () => {
+
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('*');
+    }else{
+      const sum = Number(firstNumber) * Number(currentNumber);
+      setCurrentNumber(Number(firstNumber)+ ' * ' + Number(currentNumber) + ' = ' + String(sum));
       setOperation('')
     }
   }
@@ -83,8 +97,11 @@ const App = () => {
         case '/':
           handleDivisNumbers();
           break;
-        case Math.sqrt():
-          handleRaizNumbers();
+        case '%':
+          handleDivisRestNumbers();
+          break;
+        case '*':
+          handleMultiNumbers();
           break;
         default:
           break;
@@ -97,15 +114,15 @@ const App = () => {
       <Content>
         <Input value={currentNumber}/>
         <Row>
-          <Button label="C" onClick={handleOnClear}/>
-          <Button label="%" onClick={handleRaizNumbers}/>
+          <StyledClearBtn onClick={handleOnClear}>C</StyledClearBtn>
+          <Button label="%" onClick={handleDivisRestNumbers}/>
           <Button label="÷" onClick={handleDivisNumbers}/>
         </Row>
         <Row>
           <Button label="7" onClick={() => handleAddNumber('7')}/>
           <Button label="8" onClick={() => handleAddNumber('8')}/>
           <Button label="9" onClick={() => handleAddNumber('9')}/>
-          <Button label="X" onClick={() => handleAddNumber('X')}/>
+          <Button label="X" onClick={handleMultiNumbers}/>
         </Row>
         <Row>
           <Button label="4" onClick={() => handleAddNumber('4')}/>
@@ -120,10 +137,9 @@ const App = () => {
           <Button label="+" onClick={handleSumNumbers}/>
         </Row>
         <Row>
-          <Button label="0" onClick={() => handleAddNumber('0')}/>
-          <Button label="." onClick={() => handleAddNumber('.')}/>
-          <Button label="=" onClick={handleEquals}/>
-          
+          <Button label="0" onClick={() => handleAddNumber('0')} />
+          <Button label="."  onClick={() => handleAddNumber('.')} />
+          <StyledBtn onClick={handleEquals}>=</StyledBtn>
         </Row>
       </Content>
     </Container>

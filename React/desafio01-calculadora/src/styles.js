@@ -13,8 +13,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     background-color: #0e0e10;
-    width: 50%;
+    width: 60%;
+    border-radius: 20px;
     max-width: 400px;
+    padding: 1rem;
 `
 
 export const Row = styled.div`
@@ -23,4 +25,5 @@ export const Row = styled.div`
     justify-content: space-between;
     align-items: center;
 
+   
 `
