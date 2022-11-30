@@ -26,7 +26,7 @@ const App = () => {
       setOperation('+');
     }else{
       const sum = Number(firstNumber) + Number(currentNumber);
-      setCurrentNumber(String(sum));
+      setCurrentNumber(Number(firstNumber)+ ' + ' + Number(currentNumber) + ' = ' + String(sum));
       setOperation('')
     }
   }
@@ -39,6 +39,32 @@ const App = () => {
       setOperation('-');
     }else{
       const sum = Number(firstNumber) - Number(currentNumber);
+      setCurrentNumber(Number(firstNumber)+ ' - ' + Number(currentNumber) + ' = ' + String(sum));
+      setOperation('')
+    }
+  }
+
+  const handleDivisNumbers = () => {
+
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation('/');
+    }else{
+      const sum = Number(firstNumber) / Number(currentNumber);
+      setCurrentNumber(Number(firstNumber)+ ' ÷ ' + Number(currentNumber) + ' = ' + String(sum));
+      setOperation('')
+    }
+  }
+
+  const handleRaizNumbers = () => {
+
+    if(firstNumber === '0'){
+      setFirstNumber(String(currentNumber));
+      setCurrentNumber('0');
+      setOperation(Math.sqrt());
+    }else{
+      const sum = Math.sqrt(Number(currentNumber));
       setCurrentNumber(String(sum));
       setOperation('')
     }
@@ -54,6 +80,12 @@ const App = () => {
         case '-':
           handleMinusNumbers();
           break;
+        case '/':
+          handleDivisNumbers();
+          break;
+        case Math.sqrt():
+          handleRaizNumbers();
+          break;
         default:
           break;
       }
@@ -66,8 +98,8 @@ const App = () => {
         <Input value={currentNumber}/>
         <Row>
           <Button label="C" onClick={handleOnClear}/>
-          <Button label="%" onClick={() => handleAddNumber('%')}/>
-          <Button label="÷" onClick={() => handleAddNumber('+')}/>
+          <Button label="%" onClick={handleRaizNumbers}/>
+          <Button label="÷" onClick={handleDivisNumbers}/>
         </Row>
         <Row>
           <Button label="7" onClick={() => handleAddNumber('7')}/>
