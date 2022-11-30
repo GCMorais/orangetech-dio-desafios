@@ -17,7 +17,7 @@ export const StyledContainerInput = styled.div`
     
     decoration{
         width: 40%;
-        background-color: #2f2422;
+        background-color: #649e76;
         height: 30px;
         align-self: end;
         border-radius: 20px;
@@ -29,9 +29,9 @@ export const StyledContainerInput = styled.div`
         height: 75px;
         background-color: #1f1f23;
         border: 0;
-        align-self: end;
         text-align: end;
-        font-size: 24px;
+        padding: 0 10px;
+        font-size: 40px;
         font-family: Roboto;
         color: #ffffff;
         border-radius: 20px;
