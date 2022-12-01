@@ -5,7 +5,7 @@ import { StyledInputContainer } from './styles'
 function Input({value, onChange}) {
   return (
     <StyledInputContainer>
-        <input value={value} onChange={onChange}/>
+        <input placeholder="ex: GCMorais/orangetech-dio-desafios" value={value} onChange={onChange}/>
     </StyledInputContainer>
   )
 }
