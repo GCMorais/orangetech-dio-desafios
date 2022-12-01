@@ -4,10 +4,11 @@ export const StyledAppContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin-top: 15rem;
   flex-flow: column;
   gap: 2rem;
-
+  
+  
   a{
     color: white;
   }

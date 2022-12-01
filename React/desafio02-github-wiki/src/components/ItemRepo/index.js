@@ -1,15 +1,21 @@
 import React from 'react'
 import { StyledRepoContainer } from './styles'
+import { CiCircleRemove } from "react-icons/ci";
 
-function ItemRepo() {
+
+function ItemRepo({repo}) {
   return (
-    <StyledRepoContainer>
-        <h3>Ola</h3>
-        <p>Mundo</p>
-        <a href='#'>Ver Repositório</a><br/>
-        <a href='#' className='remover'>Remover</a>
-        <hr />
-    </StyledRepoContainer>
+      <StyledRepoContainer>
+          <img src={repo.owner.avatar_url} alt="GCM foto"></img>
+
+          <div>
+            <h3>{repo.name}</h3>
+            <p>{repo.full_name}</p>
+            <a href={repo.html_url} rel="noreferrer" target="_blank" >Ver Repositório</a><br/>
+          </div>
+          
+          <a href='#' className='remover'><CiCircleRemove /></a>
+      </StyledRepoContainer>
   )
 }
 
