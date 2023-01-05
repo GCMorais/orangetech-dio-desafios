@@ -12,7 +12,6 @@ Evento exclusivo e gratuito, promovido pela DIO em parceira com o Banco Inter pa
 </p>
 
 
-
 <br>
 
 ## 💻 Projeto
